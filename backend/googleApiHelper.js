@@ -2,12 +2,14 @@ module.exports = (function googleApiHelperModule() {
 
     var google = require('googleapis');
     var sheets = google.sheets('v4');
+    var drive = google.drive('v3');
 
     function appendDataToSpreadsheet(spreadsheetMetadata, expense) {
-        authorize(function (auth) { appendDataToSpreadsheetInternal(spreadsheetMetadata, expense, auth) });
+        authorize('https://www.googleapis.com/auth/spreadsheets')
+            .then(function (auth) { appendDataToSpreadsheetInternal(auth, spreadsheetMetadata, expense); });
     }
 
-    function appendDataToSpreadsheetInternal(spreadsheetMetadata, expense, auth) {
+    function appendDataToSpreadsheetInternal(auth, spreadsheetMetadata, expense) {
         var request = {
             spreadsheetId: spreadsheetMetadata.spreadsheetFileId,
             range: spreadsheetMetadata.sheetName + '!A1',
@@ -30,26 +32,52 @@ module.exports = (function googleApiHelperModule() {
     }
 
     function getSpreadsheetMetadata(year, month) {
-        return { spreadsheetFileId: "1HHVievRz1R4IkPD0o_Kehd0xZdVamv0Q6VWZXjcbshc", sheetName: ("0" + month).substr(-2) };
+        return authorize('https://www.googleapis.com/auth/drive.readonly')
+            .then(function (auth) { return getSpreadsheetMetadataInternal(auth, year, month); })
     }
 
-    function authorize(callback) {
+    function getSpreadsheetMetadataInternal(auth, year, month) {
+        return new Promise((resolve, reject) => {
+            drive.files.list({
+                auth: auth,
+                includeRemoved: false,
+                fields: 'nextPageToken, files(id, name)',
+                q: `name contains 'Expenses ${year}'`
+            }, function (err, response) {
+                if (!err) {
+                    var files = response.files;
+                    let fileId = null;
+                    for (let i=0; i<files.length; i++) {
+                        fileId = files[i].id;
+                        console.log(files[i]);
+                        break;
+                    }
+                    resolve({ spreadsheetFileId: fileId, sheetName: ("0" + month).substr(-2) })
+                } else {
+                    console.log('getSpreadsheetMetadataInternal error: ', err);
+                    reject(err);
+                }
+            });
+        });
+    }
+
+    function authorize(realm) {
         var key = require('./access_keys/google_api_key.json');
         var jwtClient = new google.auth.JWT(
             key.client_email,
             null,
             key.private_key,
-            ['https://www.googleapis.com/auth/spreadsheets'],
+            [realm],
             null
         );
-        
-        jwtClient.authorize(function (err, tokens) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            
-            callback(jwtClient);
+
+        return new Promise((resolve, reject) => {
+            jwtClient.authorize((err, tokens) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(jwtClient);
+            });
         });
     }
 
