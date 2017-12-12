@@ -21,7 +21,8 @@
     //let month = dateTimeHelper.getCurrentMonth();
 
     function insertExpense(expense) {
-        googleApiHelper.getSpreadsheetMetadata(expense.year, expense.month)
+        googleApiHelper.getSpreadsheetId(expense.year)
+            .then( function(fileId) { return { spreadsheetFileId: fileId, sheetName: ("0" + expense.month).substr(-2) }; })
             .then( function(metadata) { googleApiHelper.appendDataToSpreadsheet(metadata, expense); });
     }
 

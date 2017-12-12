@@ -31,28 +31,21 @@ module.exports = (function googleApiHelperModule() {
         });
     }
 
-    function getSpreadsheetMetadata(year, month) {
+    function getSpreadsheetId(fileName) {
         return authorize('https://www.googleapis.com/auth/drive.readonly')
-            .then(function (auth) { return getSpreadsheetMetadataInternal(auth, year, month); })
+            .then(function (auth) { return getSpreadsheetIdInternal(auth, fileName); })
     }
 
-    function getSpreadsheetMetadataInternal(auth, year, month) {
+    function getSpreadsheetIdInternal(auth, fileName) {
         return new Promise((resolve, reject) => {
             drive.files.list({
                 auth: auth,
                 includeRemoved: false,
-                fields: 'nextPageToken, files(id, name)',
-                q: `name contains 'Expenses ${year}'`
+                fields: 'files(id)',
+                q: `name contains '${fileName}'`
             }, function (err, response) {
                 if (!err) {
-                    var files = response.files;
-                    let fileId = null;
-                    for (let i=0; i<files.length; i++) {
-                        fileId = files[i].id;
-                        console.log(files[i]);
-                        break;
-                    }
-                    resolve({ spreadsheetFileId: fileId, sheetName: ("0" + month).substr(-2) })
+                    resolve(response.files[0].id)
                 } else {
                     console.log('getSpreadsheetMetadataInternal error: ', err);
                     reject(err);
@@ -83,7 +76,7 @@ module.exports = (function googleApiHelperModule() {
 
     let publicApi = {
         appendDataToSpreadsheet: appendDataToSpreadsheet,
-        getSpreadsheetMetadata: getSpreadsheetMetadata
+        getSpreadsheetId: getSpreadsheetId
     }
 
     return publicApi;
