@@ -9,7 +9,7 @@
   "author": "Krzysztof Kepa",
   "license": "ISC",
   "dependencies": {
-    "config": "^1.28.1",
+    "alexa-sdk": "^1.0.24",
     "google-auth-library": "^0.12.0",
     "googleapis": "^23.0.0",
     "moment": "^2.19.3"

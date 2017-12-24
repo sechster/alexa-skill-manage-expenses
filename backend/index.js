@@ -1,34 +1,63 @@
-// exports.handler = (event, context, callback) => {
+const Alexa = require('alexa-sdk');
+const moment = require("moment");
 
-//     let category = "Regular";
-//     let description = "Groceries";
-//     let amount = 10;
+const APP_ID = 'amzn1.ask.skill.554f7f97-69da-43f3-a5b5-095a3e3bd3d9';
 
+const HELP_MESSAGE = 'Piss off';
+const HELP_REPROMPT = 'Piss off';
+const STOP_MESSAGE = 'Goodbye!';
 
+exports.handler = function(event, context, callback) {
+    var alexa = Alexa.handler(event, context);
+    alexa.appId = APP_ID;
+    alexa.registerHandlers(handlers);
+    alexa.execute();
+};
 
+const handlers = {
+    'LaunchRequest': function () {
+        this.emit('AddExpenseIntent');
+    },
+    'AddExpenseIntent': function () {
+        const ExpenseService = require("./expenseService");
 
+        let year = moment().year();
+        let month = moment().month() + 1;
+        let day = moment().date();
 
+        let self = this;
 
-//     callback();
-// };
+        ExpenseService.insertExpense({ 
+            year: year, 
+            month: month, 
+            day: day, 
+            category: capitalizeFirstLetter(this.event.request.intent.slots.category.value), 
+            description: capitalizeFirstLetter(this.event.request.intent.slots.description.value), 
+            amount: this.event.request.intent.slots.amount.value })
+        .then(function() { 
+            self.response.speak("Expense inserted");
+            self.emit(':responseReady');
+        });
 
-//module.exports = function serviceModule() {
+        //this.response.speak(speechOutput);
+    },
+    'AMAZON.HelpIntent': function () {
+        const speechOutput = HELP_MESSAGE;
+        const reprompt = HELP_REPROMPT;
 
-    let dateTimeHelper = require("./dateTimeHelper");
-    let googleApiHelper = require("./googleApiHelper");
+        this.response.speak(speechOutput).listen(reprompt);
+        this.emit(':responseReady');
+    },
+    'AMAZON.CancelIntent': function () {
+        this.response.speak(STOP_MESSAGE);
+        this.emit(':responseReady');
+    },
+    'AMAZON.StopIntent': function () {
+        this.response.speak(STOP_MESSAGE);
+        this.emit(':responseReady');
+    },
+};
 
-    //let year = dateTimeHelper.getCurrentYear();
-    //let month = dateTimeHelper.getCurrentMonth();
-
-    function insertExpense(expense) {
-        googleApiHelper.getSpreadsheetId(expense.year)
-            .then( function(fileId) { return { spreadsheetFileId: fileId, sheetName: ("0" + expense.month).substr(-2) }; })
-            .then( function(metadata) { googleApiHelper.appendDataToSpreadsheet(metadata, expense); });
-    }
-
-    let publicAPI = {
-        insertExpense: insertExpense
-    }
-//}
-
-insertExpense({ day: 12, category: "Regular", description: "Test", amount: 100, year: 2018, month: 12 });
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
