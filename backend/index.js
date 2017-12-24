@@ -38,8 +38,6 @@ const handlers = {
             self.response.speak("Expense inserted");
             self.emit(':responseReady');
         });
-
-        //this.response.speak(speechOutput);
     },
     'AMAZON.HelpIntent': function () {
         const speechOutput = HELP_MESSAGE;
