@@ -2,8 +2,8 @@ const Alexa = require('alexa-sdk');
 const moment = require("moment");
 
 const APP_ID = 'amzn1.ask.skill.554f7f97-69da-43f3-a5b5-095a3e3bd3d9';
-
-const HELP_MESSAGE = 'Just say ask expense manager to add new expense with category (something) description (something) and amount (something). Categories are: regular, health, bills, car, entertainment, presents, clothes, other, yearly.';
+const categories = "regular, health, bills, car, entertainment, presents, clothes, other, yearly";
+const HELP_MESSAGE = `Just say ask expense manager to add new expense with category (something) description (something) and amount (something). Categories are: ${categories}.`;
 const STOP_MESSAGE = 'Stopping';
 
 exports.handler = function(event, context, callback) {
@@ -47,6 +47,10 @@ const handlers = {
                 },
                 function (err) { console.log(`InsertExpense has failed: ${err}`); });
         }
+    },
+    'Categories': function () {
+        this.response.speak(`Categories: ${categories}`);
+        this.emit(':responseReady');
     },
     'AMAZON.HelpIntent': function () {
         this.response.speak(HELP_MESSAGE);
