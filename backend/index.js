@@ -22,10 +22,7 @@ const handlers = {
         if (!isSlotValid(this.event.request, "category")
             || !isSlotValid(this.event.request, "description")
             || !isSlotValid(this.event.request, "amount")) {
-            console.log('category = ' + this.event.request.intent.slots.category);
-            console.log('description = ' + this.event.request.intent.slots.description);
-            console.log('amount = ' + this.event.request.intent.slots.amount);
-            delegateSlotCollection(this.event, this.emit);
+                delegateSlotCollection(this.event, this.emit);
         } else {
             const ExpenseService = require("./expenseService");
 
@@ -35,10 +32,6 @@ const handlers = {
             let category = this.event.request.intent.slots.category.value;
             let description = this.event.request.intent.slots.description.value;
             let amount = this.event.request.intent.slots.amount.value;
-
-            console.log('category = ' + category);
-            console.log('description = ' + description);
-            console.log('amount = ' + amount);
 
             let self = this;
 
