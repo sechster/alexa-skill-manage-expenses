@@ -19,25 +19,42 @@ const handlers = {
         this.emit('AddExpenseIntent');
     },
     'AddExpenseIntent': function () {
-        const ExpenseService = require("./expenseService");
+        if (!isSlotValid(this.event.request, "category")
+            || !isSlotValid(this.event.request, "description")
+            || !isSlotValid(this.event.request, "amount")) {
+            console.log('category = ' + this.event.request.intent.slots.category);
+            console.log('description = ' + this.event.request.intent.slots.description);
+            console.log('amount = ' + this.event.request.intent.slots.amount);
+            delegateSlotCollection(this.event, this.emit);
+        } else {
+            const ExpenseService = require("./expenseService");
 
-        let year = moment().year();
-        let month = moment().month() + 1;
-        let day = moment().date();
+            let year = moment().year();
+            let month = moment().month() + 1;
+            let day = moment().date();
+            let category = this.event.request.intent.slots.category.value;
+            let description = this.event.request.intent.slots.description.value;
+            let amount = this.event.request.intent.slots.amount.value;
 
-        let self = this;
+            console.log('category = ' + category);
+            console.log('description = ' + description);
+            console.log('amount = ' + amount);
 
-        ExpenseService.insertExpense({ 
-            year: year, 
-            month: month, 
-            day: day, 
-            category: capitalizeFirstLetter(this.event.request.intent.slots.category.value), 
-            description: capitalizeFirstLetter(this.event.request.intent.slots.description.value), 
-            amount: this.event.request.intent.slots.amount.value })
-        .then(function() { 
-            self.response.speak("Expense inserted");
-            self.emit(':responseReady');
-        });
+            let self = this;
+
+            ExpenseService.insertExpense({ 
+                    year: year, 
+                    month: month, 
+                    day: day, 
+                    category: capitalizeFirstLetter(category), 
+                    description: capitalizeFirstLetter(description), 
+                    amount: amount })
+                .then(function() { 
+                    self.response.speak(`Inserted expense with category ${category}, description ${description} and amount ${amount}`);
+                    self.emit(':responseReady');
+                },
+                function (err) { console.log(`InsertExpense has failed: ${err}`); });
+        }
     },
     'AMAZON.HelpIntent': function () {
         const speechOutput = HELP_MESSAGE;
@@ -58,4 +75,18 @@ const handlers = {
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function delegateSlotCollection(event, emit){
+    if (event.request.dialogState === "STARTED") {
+        var updatedIntent = event.request.intent;
+        emit(":delegate", updatedIntent);
+    } else if (event.request.dialogState !== "COMPLETED") {
+        emit(":delegate");
+    }
+}
+
+function isSlotValid(request, slotName){
+    var slot = request.intent.slots[slotName];
+    return (slot && slot.value);
 }

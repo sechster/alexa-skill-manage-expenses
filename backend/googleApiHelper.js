@@ -3,13 +3,17 @@ const sheets = google.sheets('v4');
 const drive = google.drive('v3');
 
 module.exports.appendDataToSpreadsheet = function appendDataToSpreadsheet(spreadsheetMetadata, expense) {
-    authorize('https://www.googleapis.com/auth/spreadsheets')
-        .then(function (auth) { appendDataToSpreadsheetInternal(auth, spreadsheetMetadata, expense); });
+    return authorize('https://www.googleapis.com/auth/spreadsheets')
+        .then(
+            function (auth) { return appendDataToSpreadsheetInternal(auth, spreadsheetMetadata, expense); },
+            function (err) { console.log(`Authorize in appendDataToSpreadsheet has failed: ${err}`); });
 }
 
 module.exports.getSpreadsheetId = function getSpreadsheetId(fileName) {
     return authorize('https://www.googleapis.com/auth/drive.readonly')
-        .then(function (auth) { return getSpreadsheetIdInternal(auth, fileName); })
+        .then(
+            function (auth) { return getSpreadsheetIdInternal(auth, fileName); },
+            function (err) { console.log(`Authorize in getSpreadsheetId has failed: ${err}`); })
 }
 
 function appendDataToSpreadsheetInternal(auth, spreadsheetMetadata, expense) {
@@ -23,14 +27,16 @@ function appendDataToSpreadsheetInternal(auth, spreadsheetMetadata, expense) {
             values: [[expense.day, expense.category, expense.description, expense.amount]] 
         }
     };
-    
-    sheets.spreadsheets.values.append(request, function(err, response) {
-        if (err) {
-            console.error(err);
-            return;
-        }
-    
-        console.log(JSON.stringify(response, null, 2));
+
+    return new Promise((resolve, reject) => {
+        sheets.spreadsheets.values.append(request, function(err, response) {
+            if (err) {
+                reject(err);
+            }
+
+            console.log(JSON.stringify(response, null, 2));
+            resolve();
+        });
     });
 }
 
