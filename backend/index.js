@@ -3,9 +3,8 @@ const moment = require("moment");
 
 const APP_ID = 'amzn1.ask.skill.554f7f97-69da-43f3-a5b5-095a3e3bd3d9';
 
-const HELP_MESSAGE = 'Just say ask expense manager to add new expense with category X description X and amount X. Categories are: regular, health, bills, car, entertainment, presents, clothes, other, yearly.';
-//const HELP_REPROMPT = 'Piss off';
-const STOP_MESSAGE = 'Goodbye!';
+const HELP_MESSAGE = 'Just say ask expense manager to add new expense with category (something) description (something) and amount (something). Categories are: regular, health, bills, car, entertainment, presents, clothes, other, yearly.';
+const STOP_MESSAGE = 'Stopping';
 
 exports.handler = function(event, context, callback) {
     var alexa = Alexa.handler(event, context);
@@ -50,10 +49,7 @@ const handlers = {
         }
     },
     'AMAZON.HelpIntent': function () {
-        const speechOutput = HELP_MESSAGE;
-        //const reprompt = HELP_REPROMPT;
-
-        this.response.speak(speechOutput);//.listen(reprompt);
+        this.response.speak(HELP_MESSAGE);
         this.emit(':responseReady');
     },
     'AMAZON.CancelIntent': function () {
