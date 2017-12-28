@@ -1,6 +1,6 @@
-const GoogleApiHelper = require("./googleApiHelper");
+const googleApiHelper = require("./googleApiHelper");
 
-module.exports.insertExpense = function insertExpense(expense) {
+module.exports.insertExpense = function insertExpense(expense, accessToken) {
 
         return GoogleApiHelper.getSpreadsheetId(expense.year)
             .then( 

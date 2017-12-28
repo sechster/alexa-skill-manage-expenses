@@ -44,6 +44,14 @@ const handlers = {
 
             let amount = parseFloat(amountInteger + '.' + ("0" + amountFraction).substr(-2));
 
+
+            console.log(JSON.stringify(this.event.request));
+            console.log("\r\n");
+            console.log(JSON.stringify(this.context));
+            let accessToken = this.event.request.sessionDetails.accessToken;
+
+            
+
             let self = this;
 
             expenseService.insertExpense({ 
@@ -52,7 +60,8 @@ const handlers = {
                     day: day, 
                     category: capitalizeFirstLetter(category), 
                     description: capitalizeFirstLetter(description), 
-                    amount: amount })
+                    amount: amount },
+                    accessToken)
                 .then(function() { 
                     self.response.speak(`Inserted expense with category ${category}, description ${description} and amount ${amount}`);
                     self.emit(':responseReady');
