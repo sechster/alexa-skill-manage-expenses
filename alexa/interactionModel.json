@@ -377,17 +377,14 @@
       {
         "name": "AddExpenseIntent",
         "samples": [
-          "add new expense with category {category} description {description} and amount {amountInteger} point {amountFraction}",
-          "add new expense",
-          "add new expense with category {category} description {description} and amount {amountInteger} and {amountFraction}",
-          "add new cost with category {category} description {description} and amount {amountInteger} and {amountFraction}",
-          "add new cost with category {category} description {description} and amount {amountInteger} point {amountFraction}",
           "add new cost",
-          "insert new cost",
-          "insert new cost with category {category} description {description} and amount {amountInteger} point {amountFraction}",
-          "insert new cost with category {category} description {description} and amount {amountInteger} and {amountFraction}",
+          "add new expense",
           "insert new expense",
-          "insert new expense with category {category} description {description} and amount {amountInteger} point {amountFraction}",
+          "add new cost with category {category} description {description} and amount {amountInteger} point {amountFraction}",
+          "add new expense with category {category} description {description} and amount {amountInteger} point {amountFraction}",
+          "add new cost with category {category} description {description} and amount {amountInteger} and {amountFraction}",
+          "add new expense with category {category} description {description} and amount {amountInteger} and {amountFraction}",
+          "insert new cost with category {category} description {description} and amount {amountInteger} and {amountFraction}",
           "insert new expense with category {category} description {description} and amount {amountInteger} and {amountFraction}"
         ],
         "slots": [
@@ -450,7 +447,7 @@
         "slots": []
       }
     ],
-    "invocationName": "finance"
+    "invocationName": "the accountant"
   },
   "prompts": [
     {
