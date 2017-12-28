@@ -1,506 +1,551 @@
 {
-    "languageModel": {
-      "types": [
-        {
-          "name": "category",
-          "values": [
-            {
-              "id": null,
-              "name": {
-                "value": "entertainment",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "regular",
-                "synonyms": [
-                  "standard"
-                ]
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "health",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "bills",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "car",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "presents",
-                "synonyms": [
-                  "gifts"
-                ]
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "clothes",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "other",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "yearly",
-                "synonyms": []
-              }
-            }
-          ]
-        },
-        {
-          "name": "description",
-          "values": [
-            {
-              "id": null,
-              "name": {
-                "value": "shopping",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "garage",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "castorama",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "cat stuff",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "decathlon",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "bread",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "tesco",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "mortgage",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "rent",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "cinema",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "gas",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "deprim",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "scorbolamid",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "bike parts",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "wine",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "party",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "phone",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "watch",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "trousers",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "t-shirt",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "shirt",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "socks",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "underpants",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "sweater",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "jacket",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "cap",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "shoes",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "date",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "coffee",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "netflix",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "breakfast",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "dinner",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "skycash",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "uber",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "taxi",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "insurance",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "erv",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "property tax",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "car insurance",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "spotify",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "hairdresser",
-                "synonyms": []
-              }
-            },
-            {
-              "id": null,
-              "name": {
-                "value": "oil",
-                "synonyms": []
-              }
-            }
-          ]
-        }
-      ],
-      "intents": [
-        {
-          "name": "AddExpenseIntent",
-          "samples": [
-            "add new expense with category {category} description {description} and amount {amount}",
-            "add new expense"
-          ],
-          "slots": [
-            {
-              "name": "category",
-              "type": "category",
-              "samples": [
-                "{category}"
-              ]
-            },
-            {
-              "name": "description",
-              "type": "description",
-              "samples": [
-                "{description}"
-              ]
-            },
-            {
-              "name": "amount",
-              "type": "AMAZON.NUMBER",
-              "samples": [
-                "{amount}"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": [
-            "cancel"
-          ]
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": [
-            "help"
-          ]
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": [
-            "stop"
-          ]
-        }
-      ],
-      "invocationName": "expense manager"
-    },
-    "prompts": [
+  "languageModel": {
+    "types": [
       {
-        "id": "Confirm.Intent-AddExpenseIntent",
-        "variations": [
+        "name": "category",
+        "values": [
           {
-            "type": "PlainText",
-            "value": "Successfully added new expense with category {category} description {description} and amount {amount}."
+            "id": null,
+            "name": {
+              "value": "entertainment",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "regular",
+              "synonyms": [
+                "standard"
+              ]
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "health",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "bills",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "car",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "presents",
+              "synonyms": [
+                "gifts"
+              ]
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "clothes",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "other",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "yearly",
+              "synonyms": []
+            }
           }
         ]
       },
       {
-        "id": "Elicit.Intent-AddExpenseIntent.IntentSlot-category",
-        "variations": [
+        "name": "description",
+        "values": [
           {
-            "type": "PlainText",
-            "value": "What is the category?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Intent-AddExpenseIntent.IntentSlot-description",
-        "variations": [
+            "id": null,
+            "name": {
+              "value": "shopping",
+              "synonyms": []
+            }
+          },
           {
-            "type": "PlainText",
-            "value": "What is the description?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Intent-AddExpenseIntent.IntentSlot-amount",
-        "variations": [
+            "id": null,
+            "name": {
+              "value": "garage",
+              "synonyms": []
+            }
+          },
           {
-            "type": "PlainText",
-            "value": "What is the amount?"
+            "id": null,
+            "name": {
+              "value": "castorama",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "cat stuff",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "decathlon",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "bread",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "tesco",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "mortgage",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "rent",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "cinema",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "gas",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "deprim",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "scorbolamid",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "bike parts",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "wine",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "party",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "phone",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "watch",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "trousers",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "t-shirt",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "shirt",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "socks",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "underpants",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "sweater",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "jacket",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "cap",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "shoes",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "date",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "coffee",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "netflix",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "breakfast",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "dinner",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "skycash",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "uber",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "taxi",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "insurance",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "erv",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "property tax",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "car insurance",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "spotify",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "hairdresser",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "oil",
+              "synonyms": []
+            }
           }
         ]
       }
     ],
-    "dialog": {
-      "intents": [
-        {
-          "name": "AddExpenseIntent",
-          "confirmationRequired": true,
-          "prompts": {
-            "confirmation": "Confirm.Intent-AddExpenseIntent"
+    "intents": [
+      {
+        "name": "AddExpenseIntent",
+        "samples": [
+          "add new expense with category {category} description {description} and amount {amountInteger} point {amountFraction}",
+          "add new expense",
+          "add new expense with category {category} description {description} and amount {amountInteger} and {amountFraction}",
+          "add new cost with category {category} description {description} and amount {amountInteger} and {amountFraction}",
+          "add new cost with category {category} description {description} and amount {amountInteger} point {amountFraction}",
+          "add new cost",
+          "insert new cost",
+          "insert new cost with category {category} description {description} and amount {amountInteger} point {amountFraction}",
+          "insert new cost with category {category} description {description} and amount {amountInteger} and {amountFraction}",
+          "insert new expense",
+          "insert new expense with category {category} description {description} and amount {amountInteger} point {amountFraction}",
+          "insert new expense with category {category} description {description} and amount {amountInteger} and {amountFraction}"
+        ],
+        "slots": [
+          {
+            "name": "category",
+            "type": "category",
+            "samples": [
+              "{category}"
+            ]
           },
-          "slots": [
-            {
-              "name": "category",
-              "type": "category",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "Elicit.Intent-AddExpenseIntent.IntentSlot-category"
-              }
-            },
-            {
-              "name": "description",
-              "type": "description",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "Elicit.Intent-AddExpenseIntent.IntentSlot-description"
-              }
-            },
-            {
-              "name": "amount",
-              "type": "AMAZON.NUMBER",
-              "elicitationRequired": true,
-              "confirmationRequired": false,
-              "prompts": {
-                "elicitation": "Elicit.Intent-AddExpenseIntent.IntentSlot-amount"
-              }
-            }
-          ]
+          {
+            "name": "description",
+            "type": "description",
+            "samples": [
+              "{description}"
+            ]
+          },
+          {
+            "name": "amountInteger",
+            "type": "AMAZON.NUMBER",
+            "samples": [
+              "{amountInteger}"
+            ]
+          },
+          {
+            "name": "amountFraction",
+            "type": "AMAZON.NUMBER",
+            "samples": [
+              "{amountFraction}"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": [
+          "cancel"
+        ]
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": [
+          "help"
+        ]
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": [
+          "stop"
+        ]
+      },
+      {
+        "name": "Categories",
+        "samples": [
+          "categories",
+          "what are the categories",
+          "list categories",
+          "list the categories"
+        ],
+        "slots": []
+      }
+    ],
+    "invocationName": "finance"
+  },
+  "prompts": [
+    {
+      "id": "Confirm.Intent-AddExpenseIntent",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Successfully added new expense with category {category} description {description} and amount {amountInteger} point {amountFraction}."
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddExpenseIntent.IntentSlot-category",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the category?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddExpenseIntent.IntentSlot-description",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the description?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddExpenseIntent.IntentSlot-amountInteger",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What is the integer part of the amount?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-AddExpenseIntent.IntentSlot-amountFraction",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "what is the fraction part of the amount?"
         }
       ]
     }
+  ],
+  "dialog": {
+    "intents": [
+      {
+        "name": "AddExpenseIntent",
+        "confirmationRequired": true,
+        "prompts": {
+          "confirmation": "Confirm.Intent-AddExpenseIntent"
+        },
+        "slots": [
+          {
+            "name": "category",
+            "type": "category",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-AddExpenseIntent.IntentSlot-category"
+            }
+          },
+          {
+            "name": "description",
+            "type": "description",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-AddExpenseIntent.IntentSlot-description"
+            }
+          },
+          {
+            "name": "amountInteger",
+            "type": "AMAZON.NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-AddExpenseIntent.IntentSlot-amountInteger"
+            }
+          },
+          {
+            "name": "amountFraction",
+            "type": "AMAZON.NUMBER",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicitation": "Elicit.Intent-AddExpenseIntent.IntentSlot-amountFraction"
+            }
+          }
+        ]
+      }
+    ]
   }
+}
