@@ -1,23 +1,18 @@
 const google = require('googleapis');
 const sheets = google.sheets('v4');
 const drive = google.drive('v3');
+const oauth2 = google.auth.OAuth2;
 
 module.exports = function googleApiHelper(accessToken) {
 
-    this.accessToken = accessToken;
+    let _auth = authorize(accessToken);
 
     function appendDataToSpreadsheet(spreadsheetMetadata, expense) {
-        return authorize()
-            .then(
-                function (auth) { return appendDataToSpreadsheetInternal(auth, spreadsheetMetadata, expense); },
-                function (err) { console.log(`Authorize in appendDataToSpreadsheet has failed: ${err}`); });
+        return appendDataToSpreadsheetInternal(_auth, spreadsheetMetadata, expense);
     }
 
     function getSpreadsheetId(fileName) {
-        return authorize()
-            .then(
-                function (auth) { return getSpreadsheetIdInternal(auth, fileName); },
-                function (err) { console.log(`Authorize in getSpreadsheetId has failed: ${err}`); })
+        return getSpreadsheetIdInternal(_auth, fileName);
     }
 
     function appendDataToSpreadsheetInternal(auth, spreadsheetMetadata, expense) {
@@ -62,13 +57,15 @@ module.exports = function googleApiHelper(accessToken) {
         });
     }
 
-    function authorize() {
-        var oauthData = require('./access_keys/google_oauth_data.json');
-        var oauth2Client = new auth.OAuth2(oauthData.client_id, oauthData.client_secret, oauthData.redirect_uris[0]);
+    function authorize(accessToken) {
+        let oauthData = require('./access_keys/google_oauth_data.json');
+        let oauth2Client = new oauth2(oauthData.web.client_id, oauthData.web.client_secret, oauthData.web.redirect_uris[0]);
+        oauth2Client.credentials = { access_token: accessToken };
+        return oauth2Client;
+    }
 
-        return new Promise((resolve, reject) => {
-                oauth2Client.setCredentials({access_token: accessToken});
-                resolve(oauth2Client);
-            });
+    return {
+        appendDataToSpreadsheet: appendDataToSpreadsheet,
+        getSpreadsheetId: getSpreadsheetId
     }
 }

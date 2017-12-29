@@ -28,8 +28,8 @@ const handlers = {
         console.log("Expenses: AddExpenseIntent");
 
         if (!areAllSlotsValid(this.event.request)) {
-                console.log("Expenses: AddExpenseIntent - delegate slot collection");
-                delegateSlotCollection(this.event, this.emit);
+            console.log("Expenses: AddExpenseIntent - delegate slot collection");
+            delegateSlotCollection(this.event, this.emit);
         } else {
             console.log("Expenses: AddExpenseIntent - adding");
 
@@ -41,16 +41,8 @@ const handlers = {
             let description = this.event.request.intent.slots.description.value;
             let amountInteger = this.event.request.intent.slots.amountInteger.value;
             let amountFraction = this.event.request.intent.slots.amountFraction.value;
-
             let amount = parseFloat(amountInteger + '.' + ("0" + amountFraction).substr(-2));
-
-
-            console.log(JSON.stringify(this.event.request));
-            console.log("\r\n");
-            console.log(JSON.stringify(this.context));
-            let accessToken = this.event.request.sessionDetails.accessToken;
-
-            
+            let accessToken = this.event.session.user.accessToken;
 
             let self = this;
 
