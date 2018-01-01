@@ -4,7 +4,7 @@ module.exports.insertExpense = function insertExpense(expense, accessToken) {
 
     let helper = new googleApiHelper(accessToken);
 
-    return helper.getSpreadsheetId(expense.year)
+    return helper.getSpreadsheetId(`Expenses ${expense.year}`)
         .then( 
             function(fileId) { return { spreadsheetFileId: fileId, sheetName: ("0" + expense.month).substr(-2) }; },
             function (err) { console.log(`GetSpreadsheetId has failed: ${err}`); })
